@@ -1,0 +1,597 @@
+INFO:data_collection:Unique courier_ids: 10
+INFO:data_collection:Unique courier_ids: 10
+INFO:data_collection:Unique courier_ids: 10
+INFO:data_collection:Unique courier_ids: 10
+INFO:__main__:Processed data:                                           courier_id  ...  avg_dist_to_restaurants
+0                  a98737cbhoho5012hoho4b5bhoho86...  ...                 0.042431
+1                  39a26fa0hohof428hoho47a4hohoa3...  ...                 0.062721
+2                  3813235ehoho7a42hoho4601hohob7...  ...                 0.049731
+3                  9f033953hohocd53hoho488ahohoaf...  ...                 0.043190
+4                  56f65bc8hohoba54hoho47dfhohoa0...  ...                 0.069269
+
+[5 rows x 11 columns]
+2025-04-15 11:14:06,320:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 11:14:06,330:INFO:__main__:Processed data:                                           courier_id  ...  avg_dist_to_restaurants
+0                  a98737cbhoho5012hoho4b5bhoho86...  ...                 0.042431
+1                  39a26fa0hohof428hoho47a4hohoa3...  ...                 0.062721
+2                  3813235ehoho7a42hoho4601hohob7...  ...                 0.049731
+3                  9f033953hohocd53hoho488ahohoaf...  ...                 0.043190
+4                  56f65bc8hohoba54hoho47dfhohoa0...  ...                 0.069269
+
+[5 rows x 11 columns]
+2025-04-15 11:17:16,659:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 11:17:16,659:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 11:17:16,669:INFO:__main__:Processed data:                                           courier_id  ...  avg_dist_to_restaurants
+0                  a98737cbhoho5012hoho4b5bhoho86...  ...                 0.042431
+1                  39a26fa0hohof428hoho47a4hohoa3...  ...                 0.062721
+2                  3813235ehoho7a42hoho4601hohob7...  ...                 0.049731
+3                  9f033953hohocd53hoho488ahohoaf...  ...                 0.043190
+4                  56f65bc8hohoba54hoho47dfhohoa0...  ...                 0.069269
+
+[5 rows x 11 columns]
+2025-04-15 11:17:29,274:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 11:17:29,274:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 13:49:14,194:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 13:49:14,195:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 13:50:42,233:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 13:50:42,233:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 13:50:42,236:INFO:features:Added features: ['courier_id', 'order_number', 'courier_location_timestamp', 'courier_lat', 'courier_lon', 'order_created_timestamp', 'restaurant_lat', 'restaurant_lon', 'restaurant_id', 'dist_to_restaurant', 'avg_dist_to_restaurants', 'Hdist_to_restaurant', 'avg_Hdist_to_restaurants']
+2025-04-15 13:51:54,235:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 13:51:54,235:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 13:52:45,819:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 13:52:45,819:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 13:52:45,822:INFO:features:Added features: set()
+2025-04-15 13:56:02,384:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 13:56:02,384:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 13:56:02,387:INFO:features:Added features: {'dist_to_restaurant', 'avg_Hdist_to_restaurants', 'avg_dist_to_restaurants', 'Hdist_to_restaurant'}
+2025-04-15 16:46:36,738:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 16:46:36,739:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 16:46:36,741:INFO:features:Added distance features.
+2025-04-15 16:46:36,746:INFO:features:Updated time features.
+2025-04-15 16:46:57,211:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 16:46:57,212:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 16:46:57,213:INFO:features:Added distance features.
+2025-04-15 16:46:57,216:INFO:features:Updated time features.
+2025-04-15 16:48:07,923:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 16:48:07,923:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 16:48:07,924:INFO:features:Added distance features.
+2025-04-15 16:48:07,927:INFO:features:Updated time features.
+2025-04-15 16:49:35,420:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 16:49:35,420:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 16:49:35,421:INFO:features:Added distance features.
+2025-04-15 16:49:35,424:INFO:features:Updated time features.
+2025-04-15 16:49:52,698:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 16:49:52,698:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 16:49:52,699:INFO:features:Added distance features.
+2025-04-15 16:49:52,701:INFO:features:Updated time features.
+2025-04-15 16:50:29,595:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 16:50:29,595:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 16:50:29,596:INFO:features:Added distance features.
+2025-04-15 16:50:29,599:INFO:features:Updated time features.
+2025-04-15 16:50:29,600:INFO:features:Added clustering features.
+2025-04-15 16:56:34,080:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 16:56:34,081:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 16:56:34,082:INFO:features:Added distance features.
+2025-04-15 16:56:34,084:INFO:features:Updated time features.
+2025-04-15 16:56:34,085:INFO:features:Added clustering features.
+2025-04-15 16:56:59,326:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 16:56:59,326:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 16:56:59,328:INFO:features:Added distance features.
+2025-04-15 16:56:59,330:INFO:features:Updated time features.
+2025-04-15 16:56:59,331:INFO:features:Added clustering features.
+2025-04-15 16:56:59,332:INFO:features:Added h3 clustering features.
+2025-04-15 16:56:59,333:INFO:features:Added order busyness features.
+2025-04-15 16:56:59,334:INFO:features:Encoded categorical features.
+2025-04-15 16:57:34,351:INFO:__main__:Starting the data processing pipeline...
+2025-04-15 16:57:34,354:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 16:57:34,354:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 16:57:34,355:INFO:features:Added distance features.
+2025-04-15 16:57:34,357:INFO:features:Updated time features.
+2025-04-15 16:57:34,359:INFO:features:Added clustering features.
+2025-04-15 16:57:34,359:INFO:features:Added h3 clustering features.
+2025-04-15 16:57:34,361:INFO:features:Added order busyness features.
+2025-04-15 16:57:34,361:INFO:features:Encoded categorical features.
+2025-04-15 18:24:17,567:INFO:__main__:Starting the data processing pipeline...
+2025-04-15 18:24:17,574:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 18:24:17,575:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 18:24:17,576:INFO:features:Added distance features.
+2025-04-15 18:24:17,579:INFO:features:Updated time features.
+2025-04-15 20:31:09,669:INFO:__main__:Starting the data processing pipeline...
+2025-04-15 20:31:09,673:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 20:31:09,673:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 20:31:09,674:INFO:features:Added distance features.
+2025-04-15 20:31:09,678:INFO:features:Updated time features.
+2025-04-15 20:31:44,940:INFO:__main__:Starting the data processing pipeline...
+2025-04-15 20:31:44,943:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 20:31:44,944:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 20:31:44,945:INFO:features:Added distance features.
+2025-04-15 20:31:44,948:INFO:features:Updated time features.
+2025-04-15 20:39:19,849:INFO:__main__:Starting the data processing pipeline...
+2025-04-15 20:39:19,852:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 20:39:19,852:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 20:39:19,853:INFO:features:Added distance features.
+2025-04-15 20:39:19,856:INFO:features:Updated time features.
+2025-04-15 20:39:19,857:INFO:features:Added clustering features.
+2025-04-15 20:39:19,858:INFO:features:Added h3 clustering features.
+2025-04-15 20:39:19,859:INFO:features:Added order busyness features.
+2025-04-15 20:39:19,860:INFO:features:Encoded categorical features.
+2025-04-15 20:39:53,155:INFO:__main__:Starting the data processing pipeline...
+2025-04-15 20:39:53,159:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 20:39:53,160:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 20:39:53,161:INFO:features:Added distance features.
+2025-04-15 20:39:53,164:INFO:features:Updated time features.
+2025-04-15 20:39:53,166:INFO:features:Added clustering features.
+2025-04-15 20:39:53,166:INFO:features:Added h3 clustering features.
+2025-04-15 20:39:53,168:INFO:features:Added order busyness features.
+2025-04-15 20:39:53,168:INFO:features:Encoded categorical features.
+2025-04-15 20:40:11,305:INFO:__main__:Starting the data processing pipeline...
+2025-04-15 20:40:11,309:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 20:40:11,309:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 20:40:11,310:INFO:features:Added distance features.
+2025-04-15 20:40:11,312:INFO:features:Updated time features.
+2025-04-15 20:40:11,314:INFO:features:Added clustering features.
+2025-04-15 20:40:11,314:INFO:features:Added h3 clustering features.
+2025-04-15 20:40:11,316:INFO:features:Added order busyness features.
+2025-04-15 20:40:11,316:INFO:features:Encoded categorical features.
+2025-04-15 20:40:11,316:INFO:__main__:Processed data: Index(['courier_id', 'order_number', 'courier_location_timestamp',
+       'courier_lat', 'courier_lon', 'order_created_timestamp',
+       'restaurant_lat', 'restaurant_lon', 'restaurant_id',
+       'dist_to_restaurant', 'avg_dist_to_restaurants', 'Hdist_to_restaurant',
+       'avg_Hdist_to_restaurants', 'date_day_number', 'date_hour_number',
+       'five_Clusters_embedding', 'five_Clusters_embedding_error', 'h3_index',
+       'orders_busyness_by_h3_hour', 'restaurants_per_index'],
+      dtype='object')
+2025-04-15 20:44:17,906:INFO:__main__:Starting the data processing pipeline...
+2025-04-15 20:44:17,910:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 20:44:17,910:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 20:44:17,911:INFO:features:Added distance features.
+2025-04-15 20:44:17,913:INFO:features:Updated time features.
+2025-04-15 20:44:17,915:INFO:features:Added clustering features.
+2025-04-15 20:44:17,915:INFO:features:Added h3 clustering features.
+2025-04-15 20:44:17,916:INFO:features:Added order busyness features.
+2025-04-15 20:44:17,917:INFO:features:Encoded categorical features.
+2025-04-15 20:44:17,917:INFO:__main__:Processed data: Index(['courier_id', 'order_number', 'courier_location_timestamp',
+       'courier_lat', 'courier_lon', 'order_created_timestamp',
+       'restaurant_lat', 'restaurant_lon', 'restaurant_id',
+       'dist_to_restaurant', 'avg_dist_to_restaurants', 'Hdist_to_restaurant',
+       'avg_Hdist_to_restaurants', 'date_day_number', 'date_hour_number',
+       'k5_clusters_embedding', 'k5_clusters_embedding_error', 'h3_index',
+       'orders_busyness_by_h3_hour', 'restaurants_per_index'],
+      dtype='object')
+2025-04-15 23:36:50,925:INFO:__main__:Starting the data processing pipeline...
+2025-04-15 23:36:50,927:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 23:36:50,928:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 23:36:50,931:INFO:features:Added distance features.
+2025-04-15 23:36:50,933:INFO:features:Updated time features.
+2025-04-15 23:36:50,934:INFO:features:Added clustering features.
+2025-04-15 23:36:50,935:INFO:features:Added h3 clustering features.
+2025-04-15 23:36:50,937:INFO:features:Added order busyness features.
+2025-04-15 23:36:50,938:INFO:features:Encoded categorical features.
+2025-04-15 23:36:50,948:INFO:__main__:Processed data:    courier_id  order_number       courier_location_timestamp  ...  h3_index  orders_busyness_by_h3_hour restaurants_per_index
+0           8     281289453 2021-04-02 04:30:42.328000+00:00  ...         8                           1                     1
+1           3     280949566 2021-04-01 06:14:47.386000+00:00  ...         3                           1                     1
+2           2     281328578 2021-04-02 05:48:57.224000+00:00  ...         1                           2                     2
+3           7     281317998 2021-04-02 05:12:17.252000+00:00  ...         6                           1                     1
+4           6     281314132 2021-04-02 05:15:38.266000+00:00  ...         0                           1                     1
+
+[5 rows x 20 columns]
+2025-04-15 23:36:50,948:INFO:__main__:Starting the training pipeline...
+2025-04-15 23:36:50,948:INFO:train:X shape: (10, 9)
+2025-04-15 23:36:50,948:INFO:train:y shape: (10, 1)
+2025-04-15 23:36:50,949:INFO:train:X_train shape: (6, 9)
+2025-04-15 23:36:50,949:INFO:train:X_test shape: (4, 9)
+2025-04-15 23:36:50,950:INFO:train:y_train shape: (6, 1)
+2025-04-15 23:36:50,950:INFO:train:y_test shape: (4, 1)
+2025-04-15 23:39:32,285:INFO:__main__:Starting the data processing pipeline...
+2025-04-15 23:39:32,286:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 23:39:32,286:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 23:39:32,287:INFO:features:Added distance features.
+2025-04-15 23:39:32,288:INFO:features:Updated time features.
+2025-04-15 23:39:32,289:INFO:features:Added clustering features.
+2025-04-15 23:39:32,289:INFO:features:Added h3 clustering features.
+2025-04-15 23:39:32,290:INFO:features:Added order busyness features.
+2025-04-15 23:39:32,291:INFO:features:Encoded categorical features.
+2025-04-15 23:39:32,296:INFO:__main__:Processed data:    courier_id  order_number       courier_location_timestamp  ...  h3_index  orders_busyness_by_h3_hour restaurants_per_index
+0           8     281289453 2021-04-02 04:30:42.328000+00:00  ...         8                           1                     1
+1           3     280949566 2021-04-01 06:14:47.386000+00:00  ...         3                           1                     1
+2           2     281328578 2021-04-02 05:48:57.224000+00:00  ...         1                           2                     2
+3           7     281317998 2021-04-02 05:12:17.252000+00:00  ...         6                           1                     1
+4           6     281314132 2021-04-02 05:15:38.266000+00:00  ...         0                           1                     1
+
+[5 rows x 20 columns]
+2025-04-15 23:39:32,296:INFO:__main__:Starting the training pipeline...
+2025-04-15 23:39:32,296:INFO:train:X shape: (10, 9)
+2025-04-15 23:39:32,296:INFO:train:y shape: (10, 1)
+2025-04-15 23:39:32,296:INFO:train:X_train shape: (6, 9)
+2025-04-15 23:39:32,296:INFO:train:X_test shape: (4, 9)
+2025-04-15 23:39:32,296:INFO:train:y_train shape: (6, 1)
+2025-04-15 23:39:32,296:INFO:train:y_test shape: (4, 1)
+2025-04-15 23:41:15,878:INFO:__main__:Starting the data processing pipeline...
+2025-04-15 23:41:15,880:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 23:41:15,880:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 23:41:15,881:INFO:features:Added distance features.
+2025-04-15 23:41:15,882:INFO:features:Updated time features.
+2025-04-15 23:41:15,883:INFO:features:Added clustering features.
+2025-04-15 23:41:15,883:INFO:features:Added h3 clustering features.
+2025-04-15 23:41:15,884:INFO:features:Added order busyness features.
+2025-04-15 23:41:15,885:INFO:features:Encoded categorical features.
+2025-04-15 23:41:15,889:INFO:__main__:Processed data:    courier_id  order_number       courier_location_timestamp  ...  h3_index  orders_busyness_by_h3_hour restaurants_per_index
+0           8     281289453 2021-04-02 04:30:42.328000+00:00  ...         8                           1                     1
+1           3     280949566 2021-04-01 06:14:47.386000+00:00  ...         3                           1                     1
+2           2     281328578 2021-04-02 05:48:57.224000+00:00  ...         1                           2                     2
+3           7     281317998 2021-04-02 05:12:17.252000+00:00  ...         6                           1                     1
+4           6     281314132 2021-04-02 05:15:38.266000+00:00  ...         0                           1                     1
+
+[5 rows x 20 columns]
+2025-04-15 23:41:15,889:INFO:__main__:Starting the training pipeline...
+2025-04-15 23:41:15,890:INFO:train:X shape: (10, 9)
+2025-04-15 23:41:15,890:INFO:train:y shape: (10, 1)
+2025-04-15 23:41:15,890:INFO:train:X_train shape: (6, 9)
+2025-04-15 23:41:15,890:INFO:train:X_test shape: (4, 9)
+2025-04-15 23:41:15,890:INFO:train:y_train shape: (6, 1)
+2025-04-15 23:41:15,890:INFO:train:y_test shape: (4, 1)
+2025-04-15 23:41:29,371:INFO:__main__:Starting the data processing pipeline...
+2025-04-15 23:41:29,372:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 23:41:29,372:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 23:41:29,374:INFO:features:Added distance features.
+2025-04-15 23:41:29,375:INFO:features:Updated time features.
+2025-04-15 23:41:29,376:INFO:features:Added clustering features.
+2025-04-15 23:41:29,376:INFO:features:Added h3 clustering features.
+2025-04-15 23:41:29,377:INFO:features:Added order busyness features.
+2025-04-15 23:41:29,377:INFO:features:Encoded categorical features.
+2025-04-15 23:41:29,382:INFO:__main__:Processed data:    courier_id  order_number       courier_location_timestamp  ...  h3_index  orders_busyness_by_h3_hour restaurants_per_index
+0           8     281289453 2021-04-02 04:30:42.328000+00:00  ...         8                           1                     1
+1           3     280949566 2021-04-01 06:14:47.386000+00:00  ...         3                           1                     1
+2           2     281328578 2021-04-02 05:48:57.224000+00:00  ...         1                           2                     2
+3           7     281317998 2021-04-02 05:12:17.252000+00:00  ...         6                           1                     1
+4           6     281314132 2021-04-02 05:15:38.266000+00:00  ...         0                           1                     1
+
+[5 rows x 20 columns]
+2025-04-15 23:41:29,382:INFO:__main__:Starting the training pipeline...
+2025-04-15 23:41:29,383:INFO:train:X shape: (10, 9)
+2025-04-15 23:41:29,383:INFO:train:y shape: (10, 1)
+2025-04-15 23:41:29,383:INFO:train:X_train shape: (6, 9)
+2025-04-15 23:41:29,383:INFO:train:X_test shape: (4, 9)
+2025-04-15 23:41:29,383:INFO:train:y_train shape: (6, 1)
+2025-04-15 23:41:29,383:INFO:train:y_test shape: (4, 1)
+2025-04-15 23:41:29,384:INFO:train:Using RandomForestRegressor with grid search. Params: {'max_depth': [4, 5], 'min_samples_leaf': [50, 75], 'n_estimators': [100, 150]}
+2025-04-15 23:41:32,259:INFO:train:grid search best score: -0.3333333333333333
+2025-04-15 23:41:32,261:INFO:train:rf best model: RandomForestRegressor(max_depth=4, min_samples_leaf=50)
+2025-04-15 23:41:32,261:INFO:train:rf best score on test data: -0.03853333333333331
+2025-04-15 23:42:29,805:INFO:__main__:Starting the data processing pipeline...
+2025-04-15 23:42:29,806:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 23:42:29,806:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 23:42:29,808:INFO:features:Added distance features.
+2025-04-15 23:42:29,808:INFO:features:Updated time features.
+2025-04-15 23:42:29,809:INFO:features:Added clustering features.
+2025-04-15 23:42:29,809:INFO:features:Added h3 clustering features.
+2025-04-15 23:42:29,810:INFO:features:Added order busyness features.
+2025-04-15 23:42:29,811:INFO:features:Encoded categorical features.
+2025-04-15 23:42:29,816:INFO:__main__:Processed data:    courier_id  order_number       courier_location_timestamp  ...  h3_index  orders_busyness_by_h3_hour restaurants_per_index
+0           8     281289453 2021-04-02 04:30:42.328000+00:00  ...         8                           1                     1
+1           3     280949566 2021-04-01 06:14:47.386000+00:00  ...         3                           1                     1
+2           2     281328578 2021-04-02 05:48:57.224000+00:00  ...         1                           2                     2
+3           7     281317998 2021-04-02 05:12:17.252000+00:00  ...         6                           1                     1
+4           6     281314132 2021-04-02 05:15:38.266000+00:00  ...         0                           1                     1
+
+[5 rows x 20 columns]
+2025-04-15 23:42:29,816:INFO:__main__:Starting the training pipeline...
+2025-04-15 23:42:29,816:INFO:train:X shape: (10, 9)
+2025-04-15 23:42:29,816:INFO:train:y shape: (10, 1)
+2025-04-15 23:42:29,816:INFO:train:X_train shape: (6, 9)
+2025-04-15 23:42:29,817:INFO:train:X_test shape: (4, 9)
+2025-04-15 23:42:29,817:INFO:train:y_train shape: (6, 1)
+2025-04-15 23:42:29,817:INFO:train:y_test shape: (4, 1)
+2025-04-15 23:42:29,817:INFO:train:Using RandomForestRegressor with grid search. Params: {'max_depth': [4, 5], 'min_samples_leaf': [50, 75], 'n_estimators': [100, 150]}
+2025-04-15 23:42:32,454:INFO:train:grid search best score: -0.3333333333333333
+2025-04-15 23:42:32,455:INFO:train:rf best model: RandomForestRegressor(max_depth=4, min_samples_leaf=50)
+2025-04-15 23:42:32,455:INFO:train:rf best score on test data: -0.03853333333333331
+2025-04-15 23:42:32,455:ERROR:train:Error saving model: [Errno 2] No such file or directory: 'models//grid_search_modelae0c6e10-232f-4abf-9c7d-6908a0343b75.pkl'
+2025-04-15 23:44:03,722:INFO:__main__:Starting the data processing pipeline...
+2025-04-15 23:44:03,724:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 23:44:03,724:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 23:44:03,725:INFO:features:Added distance features.
+2025-04-15 23:44:03,726:INFO:features:Updated time features.
+2025-04-15 23:44:03,727:INFO:features:Added clustering features.
+2025-04-15 23:44:03,727:INFO:features:Added h3 clustering features.
+2025-04-15 23:44:03,728:INFO:features:Added order busyness features.
+2025-04-15 23:44:03,728:INFO:features:Encoded categorical features.
+2025-04-15 23:44:03,733:INFO:__main__:Processed data:    courier_id  order_number       courier_location_timestamp  ...  h3_index  orders_busyness_by_h3_hour restaurants_per_index
+0           8     281289453 2021-04-02 04:30:42.328000+00:00  ...         8                           1                     1
+1           3     280949566 2021-04-01 06:14:47.386000+00:00  ...         3                           1                     1
+2           2     281328578 2021-04-02 05:48:57.224000+00:00  ...         1                           2                     2
+3           7     281317998 2021-04-02 05:12:17.252000+00:00  ...         6                           1                     1
+4           6     281314132 2021-04-02 05:15:38.266000+00:00  ...         0                           1                     1
+
+[5 rows x 20 columns]
+2025-04-15 23:44:03,733:INFO:__main__:Starting the training pipeline...
+2025-04-15 23:44:03,733:INFO:train:X shape: (10, 9)
+2025-04-15 23:44:03,733:INFO:train:y shape: (10, 1)
+2025-04-15 23:44:03,734:INFO:train:X_train shape: (6, 9)
+2025-04-15 23:44:03,734:INFO:train:X_test shape: (4, 9)
+2025-04-15 23:44:03,734:INFO:train:y_train shape: (6, 1)
+2025-04-15 23:44:03,734:INFO:train:y_test shape: (4, 1)
+2025-04-15 23:44:03,735:INFO:train:Using RandomForestRegressor with grid search. Params: {'max_depth': [4, 5], 'min_samples_leaf': [50, 75], 'n_estimators': [100, 150]}
+2025-04-15 23:44:06,511:INFO:train:grid search best score: -0.3333333333333333
+2025-04-15 23:44:06,512:INFO:train:rf best model: RandomForestRegressor(max_depth=4, min_samples_leaf=50)
+2025-04-15 23:44:06,513:INFO:train:rf best score on test data: -0.03853333333333331
+2025-04-15 23:44:06,523:INFO:train:Model saved as grid_search_modelc29376df-3a8f-414b-89f4-2c46619b7918.pkl in ./models
+2025-04-15 23:44:06,532:INFO:train:Model saved as rf_modelc29376df-3a8f-414b-89f4-2c46619b7918.pkl in ./models
+2025-04-15 23:44:06,532:INFO:__main__:Training pipeline completed.
+2025-04-15 23:44:32,102:INFO:__main__:Starting the data processing pipeline...
+2025-04-15 23:44:32,103:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 23:44:32,104:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 23:44:32,105:INFO:features:Added distance features.
+2025-04-15 23:44:32,106:INFO:features:Updated time features.
+2025-04-15 23:44:32,107:INFO:features:Added clustering features.
+2025-04-15 23:44:32,107:INFO:features:Added h3 clustering features.
+2025-04-15 23:44:32,108:INFO:features:Added order busyness features.
+2025-04-15 23:44:32,108:INFO:features:Encoded categorical features.
+2025-04-15 23:44:32,113:INFO:__main__:Processed data:    courier_id  order_number       courier_location_timestamp  ...  h3_index  orders_busyness_by_h3_hour restaurants_per_index
+0           8     281289453 2021-04-02 04:30:42.328000+00:00  ...         8                           1                     1
+1           3     280949566 2021-04-01 06:14:47.386000+00:00  ...         3                           1                     1
+2           2     281328578 2021-04-02 05:48:57.224000+00:00  ...         1                           2                     2
+3           7     281317998 2021-04-02 05:12:17.252000+00:00  ...         6                           1                     1
+4           6     281314132 2021-04-02 05:15:38.266000+00:00  ...         0                           1                     1
+
+[5 rows x 20 columns]
+2025-04-15 23:44:32,113:INFO:__main__:Starting the training pipeline...
+2025-04-15 23:44:32,113:INFO:train:X shape: (10, 9)
+2025-04-15 23:44:32,113:INFO:train:y shape: (10, 1)
+2025-04-15 23:44:32,114:INFO:train:X_train shape: (6, 9)
+2025-04-15 23:44:32,114:INFO:train:X_test shape: (4, 9)
+2025-04-15 23:44:32,114:INFO:train:y_train shape: (6, 1)
+2025-04-15 23:44:32,114:INFO:train:y_test shape: (4, 1)
+2025-04-15 23:44:32,115:INFO:train:Using RandomForestRegressor with grid search. Params: {'max_depth': [4, 5], 'min_samples_leaf': [50, 75], 'n_estimators': [100, 150]}
+2025-04-15 23:44:35,160:INFO:train:grid search best score: -0.3333333333333333
+2025-04-15 23:44:35,161:INFO:train:rf best model: RandomForestRegressor(max_depth=4, min_samples_leaf=50)
+2025-04-15 23:44:35,161:INFO:train:rf best score on test data: -0.03853333333333331
+2025-04-15 23:44:35,172:INFO:train:Model saved as grid_search_model_73c207f8-011d-4ca8-987d-2ca4cbc68280.pkl in ./models
+2025-04-15 23:44:35,181:INFO:train:Model saved as rf_model_73c207f8-011d-4ca8-987d-2ca4cbc68280.pkl in ./models
+2025-04-15 23:44:35,181:INFO:__main__:Training pipeline completed.
+2025-04-15 23:45:18,710:INFO:__main__:Starting the data processing pipeline...
+2025-04-15 23:45:18,712:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 23:45:18,712:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 23:45:18,713:INFO:features:Added distance features.
+2025-04-15 23:45:18,714:INFO:features:Updated time features.
+2025-04-15 23:45:18,715:INFO:features:Added clustering features.
+2025-04-15 23:45:18,715:INFO:features:Added h3 clustering features.
+2025-04-15 23:45:18,716:INFO:features:Added order busyness features.
+2025-04-15 23:45:18,716:INFO:features:Encoded categorical features.
+2025-04-15 23:45:18,721:INFO:__main__:Processed data:    courier_id  order_number       courier_location_timestamp  ...  h3_index  orders_busyness_by_h3_hour restaurants_per_index
+0           8     281289453 2021-04-02 04:30:42.328000+00:00  ...         8                           1                     1
+1           3     280949566 2021-04-01 06:14:47.386000+00:00  ...         3                           1                     1
+2           2     281328578 2021-04-02 05:48:57.224000+00:00  ...         1                           2                     2
+3           7     281317998 2021-04-02 05:12:17.252000+00:00  ...         6                           1                     1
+4           6     281314132 2021-04-02 05:15:38.266000+00:00  ...         0                           1                     1
+
+[5 rows x 20 columns]
+2025-04-15 23:45:18,721:INFO:__main__:Starting the training pipeline...
+2025-04-15 23:45:18,722:INFO:train:X shape: (10, 9)
+2025-04-15 23:45:18,722:INFO:train:y shape: (10, 1)
+2025-04-15 23:45:18,722:INFO:train:X_train shape: (6, 9)
+2025-04-15 23:45:18,722:INFO:train:X_test shape: (4, 9)
+2025-04-15 23:45:18,722:INFO:train:y_train shape: (6, 1)
+2025-04-15 23:45:18,722:INFO:train:y_test shape: (4, 1)
+2025-04-15 23:45:18,723:INFO:train:y_train shape after ravel: (6,)
+2025-04-15 23:45:18,723:INFO:train:y_test shape after ravel: (4,)
+2025-04-15 23:45:18,723:INFO:train:Using RandomForestRegressor with grid search. Params: {'max_depth': [4, 5], 'min_samples_leaf': [50, 75], 'n_estimators': [100, 150]}
+2025-04-15 23:45:21,448:INFO:train:grid search best score: -0.3333333333333333
+2025-04-15 23:45:21,449:INFO:train:rf best model: RandomForestRegressor(max_depth=4, min_samples_leaf=50)
+2025-04-15 23:45:21,449:INFO:train:rf best score on test data: -0.03853333333333331
+2025-04-15 23:45:21,460:INFO:train:Model saved as grid_search_model_9848d13d-fcca-45e2-ab81-1b649f992703.pkl in ./models
+2025-04-15 23:45:21,468:INFO:train:Model saved as rf_model_9848d13d-fcca-45e2-ab81-1b649f992703.pkl in ./models
+2025-04-15 23:45:21,469:INFO:__main__:Training pipeline completed.
+2025-04-15 23:52:51,380:INFO:__main__:Starting the data processing pipeline...
+2025-04-15 23:52:51,381:INFO:data_collection:Unique courier_ids: 10
+2025-04-15 23:52:51,382:INFO:data_collection:Length of restaurant_ids: 10
+2025-04-15 23:52:51,383:INFO:features:Added distance features.
+2025-04-15 23:52:51,384:INFO:features:Updated time features.
+2025-04-15 23:52:51,385:INFO:features:Added clustering features.
+2025-04-15 23:52:51,385:INFO:features:Added h3 clustering features.
+2025-04-15 23:52:51,386:INFO:features:Added order busyness features.
+2025-04-15 23:52:51,386:INFO:features:Encoded categorical features.
+2025-04-15 23:52:51,392:INFO:__main__:Processed data:    courier_id  order_number       courier_location_timestamp  ...  h3_index  orders_busyness_by_h3_hour restaurants_per_index
+0           8     281289453 2021-04-02 04:30:42.328000+00:00  ...         8                           1                     1
+1           3     280949566 2021-04-01 06:14:47.386000+00:00  ...         3                           1                     1
+2           2     281328578 2021-04-02 05:48:57.224000+00:00  ...         1                           2                     2
+3           7     281317998 2021-04-02 05:12:17.252000+00:00  ...         6                           1                     1
+4           6     281314132 2021-04-02 05:15:38.266000+00:00  ...         0                           1                     1
+
+[5 rows x 20 columns]
+2025-04-15 23:52:51,392:INFO:__main__:Starting the training pipeline...
+2025-04-15 23:52:51,392:INFO:train:X shape: (10, 9)
+2025-04-15 23:52:51,392:INFO:train:y shape: (10, 1)
+2025-04-15 23:52:51,393:INFO:train:X_train shape: (6, 9)
+2025-04-15 23:52:51,393:INFO:train:X_test shape: (4, 9)
+2025-04-15 23:52:51,393:INFO:train:y_train shape: (6, 1)
+2025-04-15 23:52:51,393:INFO:train:y_test shape: (4, 1)
+2025-04-15 23:52:51,393:INFO:train:y_train shape after ravel: (6,)
+2025-04-15 23:52:51,393:INFO:train:y_test shape after ravel: (4,)
+2025-04-15 23:52:51,393:INFO:train:Using RandomForestRegressor with grid search. Params: {'max_depth': [4, 5], 'min_samples_leaf': [50, 75], 'n_estimators': [100, 150]}
+2025-04-15 23:52:54,125:INFO:train:grid search best score: -0.3333333333333333
+2025-04-15 23:52:54,127:INFO:train:rf best model: RandomForestRegressor(max_depth=4, min_samples_leaf=50)
+2025-04-15 23:52:54,127:INFO:train:rf best score on test data: -0.03853333333333331
+2025-04-15 23:52:54,138:INFO:train:Model saved as grid_search_model_0e1ced28-a1a9-4025-a78e-b667f4bad9cf.pkl in ./models
+2025-04-15 23:52:54,147:INFO:train:Model saved as rf_model_0e1ced28-a1a9-4025-a78e-b667f4bad9cf.pkl in ./models
+2025-04-15 23:52:54,147:INFO:__main__:Training pipeline completed.
+2025-04-16 13:57:33,146:INFO:pipeline:Starting the data processing pipeline...
+2025-04-16 13:57:33,146:INFO:pipeline:Run ID: 0c5ecdf3-17ec-4395-bc22-fda626006c87
+2025-04-16 13:57:33,174:INFO:data_collection:Data loaded from data/final_dataset.csv
+2025-04-16 13:57:33,180:INFO:data_collection:Unique courier_ids: 504
+2025-04-16 13:57:33,213:INFO:data_collection:Length of restaurant_ids: 268
+2025-04-16 13:57:54,516:INFO:features:Added distance features.
+2025-04-16 13:57:54,538:INFO:features:Updated time features.
+2025-04-16 13:57:56,061:INFO:features:Added clustering features.
+2025-04-16 13:57:56,075:INFO:features:Added h3 clustering features.
+2025-04-16 13:57:56,131:INFO:features:Added order busyness features.
+2025-04-16 13:57:56,138:INFO:pipeline:Saving the pipelines to saved_models/piplines
+2025-04-16 13:57:56,138:ERROR:utils:Error saving model: [Errno 2] No such file or directory: 'saved_models/piplines/0c5ecdf3-17ec-4395-bc22-fda626006c87_feature_pipeline.pkl'
+2025-04-16 13:58:39,015:INFO:pipeline:Starting the data processing pipeline...
+2025-04-16 13:58:39,016:INFO:pipeline:Run ID: 32344c7b-fa60-4901-9b09-0bbd180f98dc
+2025-04-16 13:58:39,038:INFO:data_collection:Data loaded from data/final_dataset.csv
+2025-04-16 13:58:39,042:INFO:data_collection:Unique courier_ids: 504
+2025-04-16 13:58:39,075:INFO:data_collection:Length of restaurant_ids: 268
+2025-04-16 13:59:00,460:INFO:features:Added distance features.
+2025-04-16 13:59:00,482:INFO:features:Updated time features.
+2025-04-16 13:59:02,024:INFO:features:Added clustering features.
+2025-04-16 13:59:02,038:INFO:features:Added h3 clustering features.
+2025-04-16 13:59:02,093:INFO:features:Added order busyness features.
+2025-04-16 13:59:02,100:INFO:pipeline:Saving the pipelines to saved_models/pipelines
+2025-04-16 13:59:02,104:INFO:utils:Model saved as 32344c7b-fa60-4901-9b09-0bbd180f98dc_feature_pipeline.pkl in saved_models/pipelines
+2025-04-16 13:59:02,104:INFO:utils:Model saved as 32344c7b-fa60-4901-9b09-0bbd180f98dc_preprocessor.pkl in saved_models/pipelines
+2025-04-16 14:01:42,527:INFO:__main__:--------------------------------------------------
+2025-04-16 14:01:42,529:INFO:pipeline:Starting the data processing pipeline...
+2025-04-16 14:01:42,529:INFO:pipeline:Run ID: a65a33cb-4529-4bd0-9a40-b98adc29ac51
+2025-04-16 14:01:42,558:INFO:data_collection:Data loaded from data/final_dataset.csv
+2025-04-16 14:01:42,562:INFO:data_collection:Unique courier_ids: 504
+2025-04-16 14:01:42,595:INFO:data_collection:Length of restaurant_ids: 268
+2025-04-16 14:02:03,876:INFO:features:Added distance features.
+2025-04-16 14:02:03,896:INFO:features:Updated time features.
+2025-04-16 14:02:05,442:INFO:features:Added clustering features.
+2025-04-16 14:02:05,455:INFO:features:Added h3 clustering features.
+2025-04-16 14:02:05,509:INFO:features:Added order busyness features.
+2025-04-16 14:02:05,516:INFO:pipeline:Saving the pipelines to saved_models/pipelines
+2025-04-16 14:02:05,518:INFO:utils:Model saved as a65a33cb-4529-4bd0-9a40-b98adc29ac51_feature_pipeline.pkl in saved_models/pipelines
+2025-04-16 14:02:05,519:INFO:utils:Model saved as a65a33cb-4529-4bd0-9a40-b98adc29ac51_preprocessor.pkl in saved_models/pipelines
+2025-04-16 14:02:05,521:INFO:pipeline:Processed data:    encode_cat__courier_id  encode_cat__h3_index
+0                   346.0                  28.0
+1                   116.0                  17.0
+2                   110.0                   6.0
+3                   328.0                  22.0
+4                   178.0                   5.0
+2025-04-16 14:02:05,521:INFO:pipeline:Starting the training pipeline...
+2025-04-16 14:07:15,317:INFO:__main__:--------------------------------------------------
+2025-04-16 14:07:15,318:INFO:pipeline:Starting the data processing pipeline...
+2025-04-16 14:07:15,318:INFO:pipeline:Run ID: ff736363-b0f2-413d-af53-c4f736cfd172
+2025-04-16 14:07:15,343:INFO:data_collection:Data loaded from data/final_dataset.csv
+2025-04-16 14:07:15,349:INFO:data_collection:Unique courier_ids: 504
+2025-04-16 14:07:15,381:INFO:data_collection:Length of restaurant_ids: 268
+2025-04-16 14:07:37,266:INFO:features:Added distance features.
+2025-04-16 14:07:37,290:INFO:features:Updated time features.
+2025-04-16 14:07:38,803:INFO:features:Added clustering features.
+2025-04-16 14:07:38,817:INFO:features:Added h3 clustering features.
+2025-04-16 14:07:38,874:INFO:features:Added order busyness features.
+2025-04-16 14:07:38,912:INFO:pipeline:Saving the pipelines to saved_models/pipelines
+2025-04-16 14:07:38,914:INFO:utils:Model saved as ff736363-b0f2-413d-af53-c4f736cfd172_feature_pipeline.pkl in saved_models/pipelines
+2025-04-16 14:07:38,915:INFO:utils:Model saved as ff736363-b0f2-413d-af53-c4f736cfd172_preprocessor.pkl in saved_models/pipelines
+2025-04-16 14:07:38,921:INFO:pipeline:Processed data:   __courier_id __h3_index  ... remainder__orders_busyness_by_h3_hour remainder__restaurants_per_index
+0        346.0       28.0  ...                                   422                               51
+1        116.0       17.0  ...                                   701                               75
+2        110.0        6.0  ...                                   941                               59
+3        328.0       22.0  ...                                  1026                               69
+4        178.0        5.0  ...                                   397                               35
+
+[5 rows x 20 columns]
+2025-04-16 14:07:38,921:INFO:pipeline:Starting the training pipeline...
+2025-04-16 14:09:41,660:INFO:__main__:--------------------------------------------------
+2025-04-16 14:09:41,662:INFO:pipeline:Starting the data processing pipeline...
+2025-04-16 14:09:41,662:INFO:pipeline:Run ID: 8621d6f6-5304-41a1-bcf2-b91be174bc99
+2025-04-16 14:09:41,687:INFO:data_collection:Data loaded from data/final_dataset.csv
+2025-04-16 14:09:41,692:INFO:data_collection:Unique courier_ids: 504
+2025-04-16 14:09:41,726:INFO:data_collection:Length of restaurant_ids: 268
+2025-04-16 14:10:02,975:INFO:features:Added distance features.
+2025-04-16 14:10:03,000:INFO:features:Updated time features.
+2025-04-16 14:10:04,509:INFO:features:Added clustering features.
+2025-04-16 14:10:04,524:INFO:features:Added h3 clustering features.
+2025-04-16 14:10:04,581:INFO:features:Added order busyness features.
+2025-04-16 14:10:04,620:INFO:pipeline:Saving the pipelines to saved_models/pipelines
+2025-04-16 14:10:04,623:INFO:utils:Model saved as 8621d6f6-5304-41a1-bcf2-b91be174bc99_feature_pipeline.pkl in saved_models/pipelines
+2025-04-16 14:10:04,624:INFO:utils:Model saved as 8621d6f6-5304-41a1-bcf2-b91be174bc99_preprocessor.pkl in saved_models/pipelines
+2025-04-16 14:10:04,630:INFO:pipeline:Processed data:   courier_id h3_index order_number  ... clusters_embedding_error orders_busyness_by_h3_hour restaurants_per_index
+0      346.0     28.0    281289453  ...                 0.010828                        422                    51
+1      116.0     17.0    280949566  ...                 0.060641                        701                    75
+2      110.0      6.0    281328578  ...                  0.02848                        941                    59
+3      328.0     22.0    281317998  ...                 0.001554                       1026                    69
+4      178.0      5.0    281314132  ...                 0.001143                        397                    35
+
+[5 rows x 20 columns]
+2025-04-16 14:10:04,630:INFO:pipeline:Starting the training pipeline...
+2025-04-16 14:10:04,631:INFO:train:X shape: (20564, 9)
+2025-04-16 14:10:04,631:INFO:train:y shape: (20564, 1)
+2025-04-16 14:10:04,633:INFO:train:X_train shape: (13777, 9)
+2025-04-16 14:10:04,633:INFO:train:X_test shape: (6787, 9)
+2025-04-16 14:10:04,633:INFO:train:y_train shape: (13777, 1)
+2025-04-16 14:10:04,633:INFO:train:y_test shape: (6787, 1)
+2025-04-16 14:10:04,639:INFO:train:y_train shape after ravel: (13777,)
+2025-04-16 14:10:04,639:INFO:train:y_test shape after ravel: (6787,)
+2025-04-16 14:10:04,639:INFO:train:Using RandomForestRegressor with grid search. Params: {'max_depth': [4, 5], 'min_samples_leaf': [50, 75], 'n_estimators': [100, 150]}
+2025-04-16 14:10:15,156:INFO:train:grid search best score: 0.9582914989221868
+2025-04-16 14:10:15,160:INFO:train:rf best model: RandomForestRegressor(max_depth=5, min_samples_leaf=50)
+2025-04-16 14:10:15,160:INFO:train:rf best score on test data: 0.9603316074316283
+2025-04-16 14:10:15,161:INFO:pipeline:Training pipeline completed.
+2025-04-16 14:10:15,161:INFO:pipeline:Saving the model(s) to saved_models/models
+2025-04-16 14:10:15,172:INFO:utils:Model saved as 8621d6f6-5304-41a1-bcf2-b91be174bc99_rf_model.pkl in saved_models/models
+2025-04-16 14:10:15,182:INFO:utils:Model saved as 8621d6f6-5304-41a1-bcf2-b91be174bc99_grid_search_model.pkl in saved_models/models
+2025-04-16 14:10:15,186:INFO:__main__:Pipeline completed.
+2025-04-16 14:12:17,205:INFO:__main__:--------------------------------------------------
+2025-04-16 14:12:17,207:INFO:pipeline:Starting the data processing pipeline...
+2025-04-16 14:12:17,207:INFO:pipeline:Run ID: de527373-300c-4ae2-b941-228f39c5dcf7
+2025-04-16 14:12:17,230:INFO:data_collection:Data loaded from data/final_dataset.csv
+2025-04-16 14:12:17,233:INFO:data_collection:Unique courier_ids: 504
+2025-04-16 14:12:17,266:INFO:data_collection:Length of restaurant_ids: 268
+2025-04-16 14:12:17,266:INFO:pipeline:Starting the prediction pipeline...
+2025-04-16 14:19:07,143:INFO:__main__:--------------------------------------------------
+2025-04-16 14:19:07,144:INFO:pipeline:Starting the data processing pipeline...
+2025-04-16 14:19:07,144:INFO:pipeline:Run ID: 5e6350da-f0e0-4a23-b9a3-585841601de2
+2025-04-16 14:19:07,169:INFO:data_collection:Data loaded from data/final_dataset.csv
+2025-04-16 14:19:07,175:INFO:data_collection:Unique courier_ids: 504
+2025-04-16 14:19:07,207:INFO:data_collection:Length of restaurant_ids: 268
+2025-04-16 14:19:07,207:INFO:pipeline:Starting the prediction pipeline...
+2025-04-16 14:19:50,870:INFO:__main__:--------------------------------------------------
+2025-04-16 14:19:50,871:INFO:pipeline:Starting the data processing pipeline...
+2025-04-16 14:19:50,871:INFO:pipeline:Run ID: f1e240a7-0069-4672-b28f-c8fab950b915
+2025-04-16 14:19:50,895:INFO:data_collection:Data loaded from data/final_dataset.csv
+2025-04-16 14:19:50,899:INFO:data_collection:Unique courier_ids: 504
+2025-04-16 14:19:50,932:INFO:data_collection:Length of restaurant_ids: 268
+2025-04-16 14:19:50,932:INFO:pipeline:Starting the prediction pipeline...
+2025-04-16 14:19:50,932:ERROR:utils:Error loading model: [Errno 2] No such file or directory: '/saved_models/pipelines/8621d6f6-5304-41a1-bcf2-b91be174bc99_feature_pipeline.pkl.pkl'
+2025-04-16 14:20:29,023:INFO:__main__:--------------------------------------------------
+2025-04-16 14:20:29,024:INFO:pipeline:Starting the data processing pipeline...
+2025-04-16 14:20:29,024:INFO:pipeline:Run ID: c2c23daf-8835-487d-818b-c9222ddb3db7
+2025-04-16 14:20:29,047:INFO:data_collection:Data loaded from data/final_dataset.csv
+2025-04-16 14:20:29,050:INFO:data_collection:Unique courier_ids: 504
+2025-04-16 14:20:29,083:INFO:data_collection:Length of restaurant_ids: 268
+2025-04-16 14:20:29,083:INFO:pipeline:Starting the prediction pipeline...
+2025-04-16 14:20:29,083:ERROR:utils:Error loading model: [Errno 2] No such file or directory: '/saved_models/pipelines/8621d6f6-5304-41a1-bcf2-b91be174bc99_feature_pipeline.pkl'
+2025-04-16 14:22:11,774:INFO:__main__:--------------------------------------------------
+2025-04-16 14:22:11,775:INFO:pipeline:Starting the data processing pipeline...
+2025-04-16 14:22:11,775:INFO:pipeline:Run ID: 2c1ac673-b241-47f7-902a-eb4a44e40838
+2025-04-16 14:22:11,798:INFO:data_collection:Data loaded from data/final_dataset.csv
+2025-04-16 14:22:11,801:INFO:data_collection:Unique courier_ids: 504
+2025-04-16 14:22:11,834:INFO:data_collection:Length of restaurant_ids: 268
+2025-04-16 14:22:11,834:INFO:pipeline:Starting the prediction pipeline...
+2025-04-16 14:22:11,837:INFO:utils:Model loaded as saved_models/pipelines/8621d6f6-5304-41a1-bcf2-b91be174bc99_feature_pipeline.pkl from 
+2025-04-16 14:22:11,837:INFO:utils:Model loaded as saved_models/pipelines/8621d6f6-5304-41a1-bcf2-b91be174bc99_preprocessor.pkl from 
+2025-04-16 14:22:11,845:INFO:utils:Model loaded as saved_models/models/8621d6f6-5304-41a1-bcf2-b91be174bc99_rf_model.pkl from 
+2025-04-16 14:22:32,954:INFO:features:Added distance features.
+2025-04-16 14:22:32,978:INFO:features:Updated time features.
+2025-04-16 14:22:34,491:INFO:features:Added clustering features.
+2025-04-16 14:22:34,506:INFO:features:Added h3 clustering features.
+2025-04-16 14:22:34,563:INFO:features:Added order busyness features.
+2025-04-16 14:26:03,808:INFO:__main__:--------------------------------------------------
+2025-04-16 14:26:03,809:INFO:pipeline:Starting the data processing pipeline...
+2025-04-16 14:26:03,809:INFO:pipeline:Run ID: 7bb7c007-2931-48d1-951e-91fafe9aa9a8
+2025-04-16 14:26:03,832:INFO:data_collection:Data loaded from data/final_dataset.csv
+2025-04-16 14:26:03,836:INFO:data_collection:Unique courier_ids: 504
+2025-04-16 14:26:03,869:INFO:data_collection:Length of restaurant_ids: 268
+2025-04-16 14:26:03,869:INFO:pipeline:Starting the prediction pipeline...
+2025-04-16 14:26:03,871:INFO:utils:Model loaded as saved_models/pipelines/8621d6f6-5304-41a1-bcf2-b91be174bc99_feature_pipeline.pkl from 
+2025-04-16 14:26:03,872:INFO:utils:Model loaded as saved_models/pipelines/8621d6f6-5304-41a1-bcf2-b91be174bc99_preprocessor.pkl from 
+2025-04-16 14:26:03,880:INFO:utils:Model loaded as saved_models/models/8621d6f6-5304-41a1-bcf2-b91be174bc99_rf_model.pkl from 
+2025-04-16 14:26:24,995:INFO:features:Added distance features.
+2025-04-16 14:26:25,017:INFO:features:Updated time features.
+2025-04-16 14:26:26,642:INFO:features:Added clustering features.
+2025-04-16 14:26:26,656:INFO:features:Added h3 clustering features.
+2025-04-16 14:26:26,712:INFO:features:Added order busyness features.
+2025-04-16 14:26:26,757:INFO:predict:Transformed test features:   courier_id h3_index order_number  ... clusters_embedding_error orders_busyness_by_h3_hour restaurants_per_index
+0      346.0     28.0    281289453  ...                 0.010828                        422                    51
+1      116.0     17.0    280949566  ...                 0.060641                        701                    75
+2      110.0      6.0    281328578  ...                  0.02848                        941                    59
+3      328.0     22.0    281317998  ...                 0.001554                       1026                    69
+4      178.0      5.0    281314132  ...                 0.001143                        397                    35
+
+[5 rows x 20 columns]
+2025-04-16 14:26:26,815:INFO:pipeline:Predictions: [ 412.35137997  697.4414599   941.         1026.          321.34588863]
+2025-04-16 14:26:26,815:INFO:pipeline:Prediction pipeline completed.
+2025-04-16 14:26:26,816:INFO:__main__:Pipeline completed.

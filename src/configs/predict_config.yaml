@@ -1,0 +1,17 @@
+data:
+  file_path: "data/final_dataset.csv"
+
+mode: "predict"
+dir_path: ""
+
+features:
+
+  feature_pipeline_path: "saved_models/pipelines/8621d6f6-5304-41a1-bcf2-b91be174bc99_feature_pipeline.pkl"
+  preprocess_path: "saved_models/pipelines/8621d6f6-5304-41a1-bcf2-b91be174bc99_preprocessor.pkl"
+
+model:
+  train_features: ['dist_to_restaurant', 'Hdist_to_restaurant', 'avg_Hdist_to_restaurants',
+                    'date_day_number', 'restaurant_id', 'clusters_embedding', 'h3_index',
+                    'date_hour_number','restaurants_per_index']
+  model_path: "saved_models/models/8621d6f6-5304-41a1-bcf2-b91be174bc99_rf_model.pkl"
+  

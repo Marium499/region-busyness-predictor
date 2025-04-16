@@ -1,0 +1,27 @@
+data:
+  file_path: "data/final_dataset.csv"
+  test_size: 0.33
+
+mode: "train"
+
+features:
+  k: 5
+  resolution: 7
+  R: 6372.8
+  save_pipeline: True
+  dir_path: "saved_models/pipelines/"
+
+model:
+  train_features: ['dist_to_restaurant', 'Hdist_to_restaurant', 'avg_Hdist_to_restaurants',
+                    'date_day_number', 'restaurant_id', 'clusters_embedding', 'h3_index',
+                    'date_hour_number','restaurants_per_index']
+  target_features: ['orders_busyness_by_h3_hour']
+  model_params: {
+    'max_depth': [4,5],
+    'min_samples_leaf': [50,75],
+    'n_estimators': [100,150]
+    }
+  use_grid_search: True
+  save_model: True
+  dir_path: "saved_models/models/"
+
