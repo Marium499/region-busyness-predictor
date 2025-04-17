@@ -1,0 +1,25 @@
+$schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
+type: pipeline
+
+description: Train a model to predict busyness in a region based on restaurant data.
+
+display_name: region-busyness-predictor-train-pipeline
+experiment_name: region-busyness-predictor-train-experiment
+
+jobs:
+
+  full_pipeline:
+    type: command
+    inputs:
+      config_file:
+        type: string
+        path: configs/train_config
+    outputs:
+      run_id:
+        type: string
+    code: src
+    environment: azureml://registries/azureml/environments/sklearn-1.5/labels/latest
+    compute: azureml:rbp-compute
+    command: >-
+      python src/main.py
+      --config ${{inputs.config_file.path}}
