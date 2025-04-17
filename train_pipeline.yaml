@@ -18,5 +18,5 @@ jobs:
     environment: azureml://registries/azureml/environments/sklearn-1.5/labels/latest
     compute: azureml:spn-compute
     command: >-
-      python src/main.py
+      python main.py
       --config ${{inputs.config_file}}
