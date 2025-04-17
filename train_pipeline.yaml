@@ -12,14 +12,11 @@ jobs:
     type: command
     inputs:
       config_file:
-        type: string
-        path: configs/train_config
-    outputs:
-      run_id:
-        type: string
+        type: uri_file
+        path: src/configs/train_config.yaml
     code: src
     environment: azureml://registries/azureml/environments/sklearn-1.5/labels/latest
-    compute: azureml:rbp-compute
+    compute: azureml:spn-compute
     command: >-
       python src/main.py
-      --config ${{inputs.config_file.path}}
+      --config ${{inputs.config_file}}
