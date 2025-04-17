@@ -14,9 +14,9 @@ jobs:
       config_file:
         type: uri_file
         path: src/configs/train_config.yaml
-    code: src
-    environment: azureml://registries/azureml/environments/sklearn-1.5/labels/latest
+    code: .
+    environment: azureml:rbp-env1:7
     compute: azureml:spn-compute
     command: >-
-      python main.py
+      python src/main.py
       --config ${{inputs.config_file}}

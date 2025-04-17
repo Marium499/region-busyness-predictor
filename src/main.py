@@ -1,31 +1,29 @@
 import logging
-
-import pandas as pd
 import argparse
-import yaml
 import uuid
 
-from pipeline import run_pipeline
+from pipeline import run_feature_pipeline
+from utils import load_config
 
 
 logging.basicConfig(filename="logs/app.log", level=logging.DEBUG, format="%(asctime)s:%(levelname)s:%(name)s:%(message)s")
+
 logger = logging.getLogger(__name__)
+
 
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", type=str, default="config.yaml")
     return parser.parse_args()
 
-def load_config(config_path="config.yaml"):
-    with open(config_path, "r") as f:
-        return yaml.safe_load(f)
+
     
 def main():
     logger.info("--------------------------------------------------")
     args = parse_args()
     config = load_config(args.config)
     run_id = str(uuid.uuid4())
-    run_pipeline(config, run_id)
+    run_feature_pipeline(config, run_id)
     logger.info("Pipeline completed.")
         
 

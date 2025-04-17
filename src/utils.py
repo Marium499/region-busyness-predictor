@@ -1,13 +1,18 @@
 import joblib
 import logging
+import yaml
 
 import pandas as pd
 
 
 logger = logging.getLogger(__name__)
 
+def load_config(config_path="config.yaml"):
+    with open(config_path, "r") as f:
+        return yaml.safe_load(f)
 
-def save_model_to_path(model, model_name, dir_path="models/"):
+
+def save_model_to_path(model, model_name, dir_path="saved_models/"):
 
     '''
     Save the trained model to a file.
@@ -45,21 +50,3 @@ def load_model_from_path(model_name, dir_path="/"):
         logger.error(f"Error loading model: {e}")
         raise e
     
-
-def postprocess_features(df_transformed, index, pipeline):
-    '''
-    Postprocess the transformed features DataFrame.
-    Args:
-        df_transformed: Transformed features DataFrame
-        index: Original index of the DataFrame
-        pipeline: Feature pipeline
-        Returns:
-        df_transformed: Postprocessed features DataFrame
-    '''
-    df_transformed = pd.DataFrame(
-    df_transformed,
-    columns=[name.split("__", 1)[-1] for name in pipeline.get_feature_names_out()],
-    index=index
-    )
-
-    return df_transformed

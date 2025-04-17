@@ -8,9 +8,10 @@ import h3
 from sklearn.preprocessing import LabelEncoder, OrdinalEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.base import BaseEstimator, TransformerMixin
+from sklearn.pipeline import Pipeline, FunctionTransformer
 # import inflect
 
-from utils import postprocess_features
+# from utils import postprocess_features
 
 
 logger = logging.getLogger(__name__)
@@ -37,12 +38,26 @@ class FeaturePipeline(BaseEstimator, TransformerMixin):
 
   def fit(self, df, y=None):
 
-    # df['h3_index'] = [h3.latlng_to_cell(lat, lon, self.resolution) for lat, lon in zip(df.courier_lat, df.courier_lon)]
-    # self.encoder.fit(df['h3_index'].astype(str))
-
     df_restaurants = pd.DataFrame([{'lat': v['lat'], 'lon': v['lon']} for v in self.restaurants_ids.values()])
     self.centroids = initiate_centroids(self.k, df_restaurants)
     return self
+  
+  def add_restuarant_id(self, df):
+    '''
+    Add restaurant ids to the dataframe
+
+    Args:
+      df: pandas dataframe
+      restaurants_ids: dictionary with restaurant ids and their coordinates
+
+    Returns:
+      df: pandas dataframe with restaurant ids
+    '''
+    
+    # add restaurant ids to the dataframe
+    df['restaurant_id'] = [self.restaurants_ids.get("{}_{}".format(a,b)).get('id', -1) #fallback for unseen ones
+                         for a,b in zip(df.restaurant_lat, df.restaurant_lon)]
+    return df
     
   def add_distance_features(self, df):
 
@@ -83,15 +98,9 @@ class FeaturePipeline(BaseEstimator, TransformerMixin):
     logger.info(f'Added order busyness features.')
     return df
   
-  # def encode_categorical_features(self, df):
-
-  #   df['h3_index'] = df['h3_index'].astype(str)
-  #   df['h3_index'] = self.encoder.transform(df['h3_index'])
-  #   logger.info(f'Encoded categorical features.')
-  #   return df
-  
   def transform(self, df):
     
+    df = self.add_restuarant_id(df)
     df = self.add_distance_features(df)
     df = self.add_time_features(df)
     df = self.add_clustering_features(df)
@@ -102,7 +111,7 @@ class FeaturePipeline(BaseEstimator, TransformerMixin):
     return df
 
 
-def run_feature_pipeline(df, restaurants_ids, k, resolution, mode, R=6372.8):
+def get_transformed_df(df, restaurants_ids, k, resolution, mode, R=6372.8):
   '''
   Run the feature pipeline
   Args:
@@ -120,19 +129,31 @@ def run_feature_pipeline(df, restaurants_ids, k, resolution, mode, R=6372.8):
 
   df = df.copy()
   features_pipeline = FeaturePipeline(k=k, resolution=resolution, restaurants_ids=restaurants_ids, R=R)
-  df = features_pipeline.fit_transform(df) if mode == 'train' else features_pipeline.transform(df)
+  # df = features_pipeline.fit_transform(df) if mode == 'train' else features_pipeline.transform(df)
 
-  # Encode categorical features
-  cat_cols = df.select_dtypes(include=['object', 'category']).columns.tolist()
-  preprocess = ColumnTransformer([
-      ("", OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1), cat_cols)
-  ], remainder='passthrough')
-  df_transformed = preprocess.fit_transform(df)
+  # # Encode categorical features
+  # cat_cols = df.select_dtypes(include=['object', 'category']).columns.tolist()
+  # preprocess = ColumnTransformer([
+  #     ("encoder", OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1).set_output(transform="pandas"), cat_cols)
+  # ], remainder='passthrough', verbose_feature_names_out=True).set_output(transform="pandas")
+  # # df_transformed = preprocess.fit_transform(df)
 
-  # workaround to fix the issue with the numpy array return type of column transformer column names 
-  df_transformed = postprocess_features(df_transformed, df.index, preprocess)
+  # # sklearn pipeline
+  # full_pipeline = Pipeline([
+  #     ("features_pipeline", features_pipeline),
+  #     ("preprocess", preprocess),
+  #     ("", FunctionTransformer(func=postprocess_features, kw_args={'index': df.index, 'pipeline':preprocess})) # workaround to fix the issue with the column names output by column transformer
+  # ])
 
-  return df_transformed, features_pipeline, preprocess
+  full_pipeline = Pipeline([
+      ("features_pipeline", features_pipeline),
+      ("encoder", FunctionTransformer(func=Encoder)) # workaround to fix the issue with the column names output by column transformer
+  ])
+  
+  df_transformed = full_pipeline.fit_transform(df)
+  logger.info(f"Transformed data after full pipeline: {df_transformed.head()}")
+
+  return df_transformed, full_pipeline
 
 def calc_dist(p1x, p1y, p2x, p2y):
 
@@ -284,7 +305,7 @@ def Encoder(df):
       try:
           df[feature] = le.fit_transform(df[feature])
       except:
-          print('Error encoding '+feature)
+          logger.error(f'Error encoding in {feature}')
   return df
 
 
@@ -300,5 +321,24 @@ def select_features(df, features):
     df: pandas dataframe with selected features
   '''
   return df[features]
+
+
+def postprocess_features(df_transformed, index, pipeline):
+    '''
+    Postprocess the transformed features DataFrame.
+    Args:
+        df_transformed: Transformed features DataFrame
+        index: Original index of the DataFrame
+        pipeline: Feature pipeline
+        Returns:
+        df_transformed: Postprocessed features DataFrame
+    '''
+    df_transformed = pd.DataFrame(
+    df_transformed,
+    columns=[name.split("__", 1)[-1] for name in pipeline.get_feature_names_out()],
+    index=index
+    )
+
+    return df_transformed
 
   

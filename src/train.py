@@ -1,13 +1,21 @@
 import logging
+import argparse
+import os
+from pathlib import Path
 
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.ensemble import RandomForestRegressor
 import joblib
 import uuid
 import numpy as np
+import pandas as pd
 
 from features import select_features
+from data_collection import load_data_from_path
+from utils import load_config, save_model_to_path
 
+
+logging.basicConfig(filename="logs/app.log", level=logging.DEBUG, format="%(asctime)s:%(levelname)s:%(name)s:%(message)s")
 
 logger = logging.getLogger(__name__)
 
@@ -39,27 +47,8 @@ def validate_data(X, y):
     if X.nunique().eq(1).all():
         logger.error("Feature variables have only one unique value. Please check the data.")
         return
-
-def save_model_to_path(model, model_name, dir_path="models"):
-
-    '''
-    Save the trained model to a file.
-    Args:
-        model: Trained model
-        model_name: Name of the model file
-        dir_path: Directory path to save the model
-    Returns:
-        None
-    '''
-
-    try:
-        joblib.dump(model, f"{dir_path}/{model_name}.pkl")
-        logger.info(f"Model saved as {model_name}.pkl in {dir_path}")
-    except Exception as e:
-        logger.error(f"Error saving model: {e}")
-        raise e
     
-def run_grid_search(X_train, y_train, model_params, X_test, y_test):
+def run_grid_search(X_train, y_train, model_params, X_test, y_test, n_jobs=-1):
 
     '''
     Run GridSearchCV to find the best hyperparameters for the RandomForestRegressor model.
@@ -80,7 +69,7 @@ def run_grid_search(X_train, y_train, model_params, X_test, y_test):
         grid_search = GridSearchCV(estimator=RandomForestRegressor(),
                         param_grid=model_params,
                         cv = 3,
-                        n_jobs=-1, verbose=1, scoring="r2")
+                        n_jobs=n_jobs, verbose=1, scoring="r2")
         grid_search.fit(X_train, y_train)
         grid_score_best = grid_search.best_score_
         regr_best = grid_search.best_estimator_
@@ -94,7 +83,7 @@ def run_grid_search(X_train, y_train, model_params, X_test, y_test):
         raise e
 
 
-def train_pipeline(df, train_features, target_features, model_params, test_size=0.33, use_grid_search=True, run_id=None):
+def train_pipeline(df, train_features, target_features, model_params, test_size=0.33, use_grid_search=True, n_jobs=-1, run_id=None):
     
     '''
     Train a RandomForestRegressor model on the provided dataset.
@@ -140,13 +129,13 @@ def train_pipeline(df, train_features, target_features, model_params, test_size=
   
     # Model training
     if use_grid_search == True:  
-        grid_search, regr, regr_score = run_grid_search(X_train, y_train, model_params, X_test, y_test)
+        grid_search, regr, regr_score = run_grid_search(X_train, y_train, model_params, X_test, y_test, n_jobs=n_jobs)
         return regr, grid_search
 
     else:
         logger.info(f"Using RandomForestRegressor without grid search. Max_depth: {model_params.max_depth}")
         try:
-            regr = RandomForestRegressor(max_depth=model_params.max_depth[0], random_state=0, n_jobs=-1)
+            regr = RandomForestRegressor(max_depth=model_params.max_depth[0], random_state=0, n_jobs=n_jobs)
             regr.fit(X_train, y_train)
             regr_score = regr.score(X_test, y_test)
             logger.info(f"rf score on test data: {regr_score}")
@@ -155,10 +144,46 @@ def train_pipeline(df, train_features, target_features, model_params, test_size=
         except Exception as e:
             logger.error(f"Error during training: {e}")
             raise e
+            
         
         
+def run_train_pipeline():
 
-    
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--training_data", type=str, help="Path to training data")
+    parser.add_argument("--model_output", type=str, help="Path of output model", default="saved_models/models/")
+    parser.add_argument("--config", type=str, default="config.yaml", help="Path to config file")
+    parser.add_argument("--run_id", type=str, default=str(uuid.uuid4()), help="Run ID for the training pipeline")
+    args = parser.parse_args()
+    logger.info("Setting up the training pipeline...")
+    config = load_config(args.config)
+    df_path = args.training_data 
+    model_output = args.model_output
+    run_id = args.run_id
+
+    logger.info(f"Run ID: {run_id}")
+    print("Reading file: %s ..." % df_path)
+    with open(df_path, "r") as f:
+        df = load_data_from_path(file_path=Path(df_path))
+
+    logger.info("Starting the training pipeline...")
+    rf_model, grid_model = train_pipeline(df, config['model']['train_features'], config['model']['target_features'], config['model']['model_params'], test_size=config['data']['test_size'], use_grid_search=config['model']['use_grid_search'], run_id=run_id, n_jobs=config['model']['n_jobs'])
+    logger.info("Training pipeline completed.")
+
+    # Save the trained model to a file
+    # see how we can use config dir path instead of parse args path
+    if config["model"]["save_model"] == True:
+        logger.info(f"Saving the model(s) to {config['model']['dir_path']}")
+        save_model_to_path(rf_model, f"{run_id}_rf_model", dir_path=config['model']['dir_path'])
+        if grid_model:
+            save_model_to_path(grid_model, f"{run_id}_grid_search_model", dir_path=config['model']['dir_path'])
+
+    logger.info("Training pipeline completed.")
+if __name__ == "__main__":
+ 
+    run_train_pipeline()
+
+
 
 
 

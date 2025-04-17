@@ -1,7 +1,0 @@
-h3==4.2.2
-inflect==7.5.0
-joblib==1.4.2
-numpy==2.2.4
-pandas==2.2.3
-PyYAML==6.0.2
-scikit_learn==1.6.1

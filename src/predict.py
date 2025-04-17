@@ -3,7 +3,7 @@ import logging
 
 import pandas as pd
 
-from utils import load_model_from_path, postprocess_features
+from utils import load_model_from_path
 
 logger = logging.getLogger(__name__)
 
