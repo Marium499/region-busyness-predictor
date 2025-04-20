@@ -1189,3 +1189,22 @@ ValueError: Input y contains NaN.
 2025-04-17 13:31:16,071:INFO:utils:Model saved as 6b1f6fd4-48df-4c3c-bf18-aa543ee04d8c_rf_model.pkl in saved_models/models/
 2025-04-17 13:31:16,081:INFO:utils:Model saved as 6b1f6fd4-48df-4c3c-bf18-aa543ee04d8c_grid_search_model.pkl in saved_models/models/
 2025-04-17 13:31:16,081:INFO:__main__:Training pipeline completed.
+2025-04-20 13:32:32,852:INFO:__main__:--------------------------------------------------
+2025-04-20 13:32:32,853:INFO:__main__:Setting up the training pipeline...
+2025-04-20 13:33:46,301:INFO:__main__:--------------------------------------------------
+2025-04-20 13:33:46,302:INFO:__main__:Setting up the training pipeline...
+2025-04-20 13:33:46,345:INFO:data_collection:Data loaded from data/feature_dataset.csv
+2025-04-20 13:33:46,345:INFO:__main__:Starting the training pipeline...
+2025-04-20 13:33:46,347:INFO:__main__:X shape: (20564, 9)
+2025-04-20 13:33:46,347:INFO:__main__:y shape: (20564, 1)
+2025-04-20 13:33:46,349:INFO:__main__:X_train shape: (13777, 9)
+2025-04-20 13:33:46,349:INFO:__main__:X_test shape: (6787, 9)
+2025-04-20 13:33:46,349:INFO:__main__:y_train shape: (13777, 1)
+2025-04-20 13:33:46,349:INFO:__main__:y_test shape: (6787, 1)
+2025-04-20 13:33:46,352:INFO:__main__:y_train shape after ravel: (13777,)
+2025-04-20 13:33:46,352:INFO:__main__:y_test shape after ravel: (6787,)
+2025-04-20 13:33:46,352:INFO:__main__:Using RandomForestRegressor with grid search. Params: {'max_depth': [4, 5], 'min_samples_leaf': [50, 75], 'n_estimators': [100, 150]}
+2025-04-20 13:34:15,017:INFO:__main__:grid search best score: 0.9582772787672688
+2025-04-20 13:34:15,018:INFO:__main__:rf best model: RandomForestRegressor(max_depth=5, min_samples_leaf=50)
+2025-04-20 13:34:15,018:INFO:__main__:rf best params: {'max_depth': 5, 'min_samples_leaf': 50, 'n_estimators': 100}
+2025-04-20 13:34:15,018:INFO:__main__:rf best score on test data: 0.9604345084586041

@@ -8,7 +8,7 @@ experiment_name: region-busyness-predictor-train-experiment
 
 jobs:
 
-  transform_job:
+  pretrain_job:
     type: command
     inputs:
       config_file:
@@ -22,10 +22,10 @@ jobs:
     environment: azureml:rbp-env1:7
     compute: azureml:spn-compute
     command: >-
-      python src/feature_pipeline.py
+      python src/pretraining_pipeline.py
       --config ${{inputs.config_file}}
-      --output_model_path ${{outputs.model_output}}
-      --output_data_path ${{outputs.transformed_data}}
+      --output_model_path ${{outputs.output_model_path}}
+      --output_data_path ${{outputs.output_data_path}}
 
   train_job:
     type: command
@@ -33,7 +33,7 @@ jobs:
       config_file:
         type: uri_file
         path: src/configs/train_config.yaml
-      training_data: ${{parent.jobs.transform_job.outputs.output_data_path}}
+      training_data: ${{parent.jobs.pretrain_job.outputs.output_data_path}}
     outputs:
       model_output:
     code: .

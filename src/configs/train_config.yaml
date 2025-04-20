@@ -1,15 +1,14 @@
 data:
-  file_path: "data/final_dataset.csv"
+  file_path: 'azureml://subscriptions/32daaf9e-fc90-446c-8950-13de434a7828/resourcegroups/ml/workspaces/ml-ws/datastores/rbpdatastore/paths/final_dataset.csv'
   test_size: 0.33
-
-mode: "train"
 
 features:
   k: 5
   resolution: 7
   R: 6372.8
   save_pipeline: True
-  dir_path: "saved_models/pipelines/"
+  dir_path: 'saved_models/pipelines/'
+  feature_output_filename: 'feature_dataset.csv'
 
 model:
   train_features: ['dist_to_restaurant', 'Hdist_to_restaurant', 'avg_Hdist_to_restaurants',
@@ -24,5 +23,5 @@ model:
   n_jobs : 1
   use_grid_search: True
   save_model: True
-  dir_path: "saved_models/models/"
+  dir_path: 'saved_models/models/'
 

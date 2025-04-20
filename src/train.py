@@ -1,16 +1,12 @@
 import logging
 import argparse
-import os
 from pathlib import Path
 
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.ensemble import RandomForestRegressor
-import joblib
-import uuid
 import numpy as np
-import pandas as pd
+import mlflow
 
-from features import select_features
 from data_collection import load_data_from_path
 from utils import load_config, save_model_to_path
 
@@ -49,7 +45,6 @@ def validate_data(X, y):
         return
     
 def run_grid_search(X_train, y_train, model_params, X_test, y_test, n_jobs=-1):
-
     '''
     Run GridSearchCV to find the best hyperparameters for the RandomForestRegressor model.
     Args:
@@ -63,7 +58,6 @@ def run_grid_search(X_train, y_train, model_params, X_test, y_test, n_jobs=-1):
         regr_best: Best RandomForestRegressor model
         regr_score_best: Best score of the RandomForestRegressor model on the test data
     '''
-
     logger.info(f'Using RandomForestRegressor with grid search. Params: {model_params}')
     try:
         grid_search = GridSearchCV(estimator=RandomForestRegressor(),
@@ -76,6 +70,7 @@ def run_grid_search(X_train, y_train, model_params, X_test, y_test, n_jobs=-1):
         regr_score_best = regr_best.score(X_test, y_test)
         logger.info(f'grid search best score: {grid_score_best}')
         logger.info(f'rf best model: {regr_best}')
+        logger.info(f'rf best params: {grid_search.best_params_}')
         logger.info(f'rf best score on test data: {regr_score_best}')
         return grid_search, regr_best, regr_score_best
     except Exception as e:
@@ -83,8 +78,7 @@ def run_grid_search(X_train, y_train, model_params, X_test, y_test, n_jobs=-1):
         raise e
 
 
-def train_pipeline(df, train_features, target_features, model_params, test_size=0.33, use_grid_search=True, n_jobs=-1):
-    
+def train_pipeline(df, train_features, target_features, model_params, test_size=0.33, use_grid_search=True, n_jobs=-1):   
     '''
     Train a RandomForestRegressor model on the provided dataset.
 
@@ -105,7 +99,7 @@ def train_pipeline(df, train_features, target_features, model_params, test_size=
         None
     '''
     # Select features and target variable
-    X = select_features(df, train_features)
+    X = df[train_features]
     y = df[target_features]
     logger.info(f'X shape: {X.shape}')
     logger.info(f'y shape: {y.shape}')
@@ -128,8 +122,16 @@ def train_pipeline(df, train_features, target_features, model_params, test_size=
     logger.info(f'y_test shape after ravel: {y_test.shape}')
   
     # Model training
+
+    # Set the experiment
+    # mlflow.set_experiment("mlflow-experiment")
+    # mlflow_run = mlflow.start_run()
+
     if use_grid_search == True:  
         grid_search, regr, regr_score = run_grid_search(X_train, y_train, model_params, X_test, y_test, n_jobs=n_jobs)
+        # mlflow.log_metric('best rf model score', regr_score)
+        # mlflow.log_param('best rf model params', regr.get_params())
+        # logger.info("grid_search.best_params_ == regr.get_params()
         return regr, grid_search
 
     else:
@@ -149,19 +151,21 @@ def train_pipeline(df, train_features, target_features, model_params, test_size=
         
 def run_train_pipeline():
 
+    '''
+    Main entry point into the training pipeline for RBP system.
+    Runs and saves the trained model to a file.
+    '''
+    logger.info('--------------------------------------------------')
+    
     parser = argparse.ArgumentParser()
     parser.add_argument('--training_data', type=str, help='Path to training data')
     parser.add_argument('--model_output', type=str, help='Path of output model', default='saved_models/models/')
     parser.add_argument('--config', type=str, default='config.yaml', help='Path to config file')
-    # parser.add_argument('--run_id', type=str, default=str(uuid.uuid4()), help='Run ID for the training pipeline')
     args = parser.parse_args()
     logger.info('Setting up the training pipeline...')
     config = load_config(args.config)
-    df_path = args.training_data 
-    model_output = args.model_output
-    # run_id = args.run_id
-
-    # logger.info(f'Run ID: {run_id}')
+    df_path = Path(f'{args.training_data}/{config['features']['feature_output_filename']}')
+    model_output = Path(args.model_output)
     print('Reading file: %s ...' % df_path)
     with open(df_path, 'r') as f:
         df = load_data_from_path(file_path=Path(df_path))
@@ -171,7 +175,6 @@ def run_train_pipeline():
     logger.info('Training pipeline completed.')
 
     # Save the trained model to a file
-    # see how we can use config dir path instead of parse args path
     if config['model']['save_model'] == True:
         logger.info(f'Saving the model(s) to {model_output}')
         save_model_to_path(rf_model, f'rf_model', dir_path=model_output)
@@ -179,8 +182,10 @@ def run_train_pipeline():
             save_model_to_path(grid_model, f'grid_search_model', dir_path=model_output)
 
     logger.info('Training pipeline completed.')
+
+
 if __name__ == '__main__':
- 
+
     run_train_pipeline()
 
 

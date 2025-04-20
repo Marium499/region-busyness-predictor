@@ -5,3 +5,4 @@ numpy==2.2.4
 pandas==2.2.3
 PyYAML==6.0.2
 scikit_learn==1.6.1
+mlflow azureml-mlflow==1.60.0

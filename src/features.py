@@ -5,14 +5,13 @@ import logging
 import numpy as np
 import pandas as pd
 import h3
-from sklearn.preprocessing import LabelEncoder, OrdinalEncoder
-from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import LabelEncoder #, OrdinalEncoder
+# from sklearn.compose import ColumnTransformer
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.pipeline import Pipeline, FunctionTransformer
 # import inflect
 
-# from utils import postprocess_features
-
+# from utils import numpy_to_df
 
 logger = logging.getLogger(__name__)
 
@@ -21,12 +20,13 @@ class FeaturePipeline(BaseEstimator, TransformerMixin):
 
   def __init__(self, k, resolution, restaurants_ids, random_state=1, R = 6372.8):
     '''
-    Initialize the class with the number of clusters and distance metric
-
+    Feature pipeline for the region busyness predictor.
     Args:
       k: number of clusters
       resolution: h3 resolution
       restaurants_ids: dictionary with restaurant ids and their coordinates
+      random_state: random state for reproducibility
+      R: radius of the earth in kilometers (default is 6372.8)
     '''
     self.k = k
     self.resolution = resolution
@@ -42,20 +42,9 @@ class FeaturePipeline(BaseEstimator, TransformerMixin):
     self.centroids = initiate_centroids(self.k, df_restaurants)
     return self
   
-  def add_restuarant_id(self, df):
-    '''
-    Add restaurant ids to the dataframe
+  def add_restuarant_id(self, df):  
 
-    Args:
-      df: pandas dataframe
-      restaurants_ids: dictionary with restaurant ids and their coordinates
-
-    Returns:
-      df: pandas dataframe with restaurant ids
-    '''
-    
-    # add restaurant ids to the dataframe
-    df['restaurant_id'] = [self.restaurants_ids.get("{}_{}".format(a,b)).get('id', -1) #fallback for unseen ones
+    df['restaurant_id'] = [self.restaurants_ids.get('{}_{}'.format(a,b)).get('id', -1) #fallback for unseen ones
                          for a,b in zip(df.restaurant_lat, df.restaurant_lon)]
     return df
     
@@ -107,11 +96,10 @@ class FeaturePipeline(BaseEstimator, TransformerMixin):
     df = self.add_h3_features(df)
     df = self.add_order_busyness_features(df)
     # df = self.encode_categorical_features(df)
-
     return df
 
 
-def get_transformed_df(df, restaurants_ids, k, resolution, mode, R=6372.8):
+def get_transformed_df(df, restaurants_ids, k, resolution, R=6372.8):
   '''
   Run the feature pipeline
   Args:
@@ -129,34 +117,55 @@ def get_transformed_df(df, restaurants_ids, k, resolution, mode, R=6372.8):
 
   df = df.copy()
   features_pipeline = FeaturePipeline(k=k, resolution=resolution, restaurants_ids=restaurants_ids, R=R)
-  # df = features_pipeline.fit_transform(df) if mode == 'train' else features_pipeline.transform(df)
-
-  # # Encode categorical features
+  
+  # # Encode categorical features using OridinalEncoder
   # cat_cols = df.select_dtypes(include=['object', 'category']).columns.tolist()
   # preprocess = ColumnTransformer([
-  #     ("encoder", OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1).set_output(transform="pandas"), cat_cols)
-  # ], remainder='passthrough', verbose_feature_names_out=True).set_output(transform="pandas")
+  #     ('encoder', OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1).set_output(transform='pandas'), cat_cols)
+  # ], remainder='passthrough', verbose_feature_names_out=True).set_output(transform='pandas')
   # # df_transformed = preprocess.fit_transform(df)
 
   # # sklearn pipeline
   # full_pipeline = Pipeline([
-  #     ("features_pipeline", features_pipeline),
-  #     ("preprocess", preprocess),
-  #     ("", FunctionTransformer(func=postprocess_features, kw_args={'index': df.index, 'pipeline':preprocess})) # workaround to fix the issue with the column names output by column transformer
+  #     ('features_pipeline', features_pipeline),
+  #     ('preprocess', preprocess),
   # ])
 
   full_pipeline = Pipeline([
-      ("features_pipeline", features_pipeline),
-      ("encoder", FunctionTransformer(func=Encoder)) # workaround to fix the issue with the column names output by column transformer
+      ('features_pipeline', features_pipeline),
+      ('encoder', FunctionTransformer(func=Encoder))
   ])
   
   df_transformed = full_pipeline.fit_transform(df)
-  logger.info(f"Transformed data after full pipeline: {df_transformed.head()}")
-
+  logger.info(f'Transformed data after full pipeline: {df_transformed.head()}')
   return df_transformed, full_pipeline
 
-def calc_dist(p1x, p1y, p2x, p2y):
 
+def Encoder(df):
+  '''
+  Encode categorical features using LabelEncoder
+
+  Args:
+    df: pandas dataframe
+
+  Returns:
+    df: pandas dataframe with encoded categorical features
+  '''
+  columnsToEncode = list(df.select_dtypes(include=['category','object']))
+  le = LabelEncoder()
+  for feature in columnsToEncode:
+      try:
+          df[feature] = le.fit_transform(df[feature])
+      except:
+          logger.error(f'Error encoding in {feature}')
+  return df
+
+
+  
+
+### HELPER AND GEOMETRY FUNCTIONS ###
+
+def calc_dist(p1x, p1y, p2x, p2y):
   '''
   Calculate the euclidean distances to restaurants arrays.
 
@@ -175,7 +184,6 @@ def calc_dist(p1x, p1y, p2x, p2y):
   return dist.tolist() if isinstance(p1x, collections.abc.Sequence) else dist
 
 def avg_dist_to_restaurants(courier_lat,courier_lon, restaurants_ids):
-
   '''
   Calculates the avgerage distance to restaurants.
 
@@ -190,7 +198,6 @@ def avg_dist_to_restaurants(courier_lat,courier_lon, restaurants_ids):
   return np.mean([calc_dist(v['lat'], v['lon'], courier_lat, courier_lon) for v in restaurants_ids.values()])
 
 def calc_haversine_dist(lat1, lon1, lat2, lon2, R = 6372.8):
-
   '''
   Calculate the great circle distance in kilometers between two points on the earth (specified in decimal degrees)
   
@@ -222,7 +229,6 @@ def calc_haversine_dist(lat1, lon1, lat2, lon2, R = 6372.8):
   return dist.tolist() if isinstance(lon1, collections.abc.Sequence) else dist
 
 def avg_Hdist_to_restaurants(courier_lat,courier_lon, restaurants_ids):
-  
   '''
   Calculates the average haversine distance to restaurants.
 
@@ -238,10 +244,28 @@ def avg_Hdist_to_restaurants(courier_lat,courier_lon, restaurants_ids):
   return np.mean([calc_haversine_dist(v['lat'], v['lon'], courier_lat, courier_lon) for v in restaurants_ids.values()])
 
 def initiate_centroids(k, df_source):
+    '''
+    Initiate the centroids for the clustering algorithm.
+    Args:
+        k: number of clusters
+        df_source: dataframe with the source data
+    Returns:
+        centroids: dataframe with the centroids
+    '''
+    # Randomly select k points from the source data as initial centroids
     centroids = df_source.sample(k, random_state=42)
     return centroids
 
 def centroid_assignation(df, centroids):
+    '''
+    Assign each point to the nearest centroid.
+    Args:
+        df: dataframe with the points
+        centroids: dataframe with the centroids
+    Returns:
+        assignation: list with the index of the nearest centroid for each point
+        assign_errors: list with the distance to the nearest centroid for each point
+    '''
     assignation = []
     assign_errors = []
 
@@ -256,8 +280,7 @@ def eucl_dist(p1x, p1y, p2x, p2y):
         return calc_dist(p1x, p1y, p2x, p2y)
 
   
-def get_order_busyness(df):
-
+def get_order_busyness(df): 
   '''
   Calculates the order busyness by h3 index and hour.
 
@@ -274,7 +297,6 @@ def get_order_busyness(df):
   return order_busyness
 
 def get_restaurants_per_h3_index(df):
-
   '''
   Calculates the number of restaurants per h3 index.
 
@@ -284,61 +306,7 @@ def get_restaurants_per_h3_index(df):
   Returns:
     restaurants_per_index: list of number of restaurants per h3 index
   '''
-
   restaurants_counts_per_h3_index = {a:len(b) for a,b in zip(df.groupby('h3_index')['restaurant_id'].unique().index, df.groupby('h3_index')['restaurant_id'].unique()) }
   restaurants_per_index = [restaurants_counts_per_h3_index[h] for h in df.h3_index]
   return restaurants_per_index
 
-
-def Encoder(df):
-  '''
-  Encode categorical features using LabelEncoder
-
-  Args:
-    df: pandas dataframe
-
-  Returns:
-    df: pandas dataframe with encoded categorical features'''
-  columnsToEncode = list(df.select_dtypes(include=['category','object']))
-  le = LabelEncoder()
-  for feature in columnsToEncode:
-      try:
-          df[feature] = le.fit_transform(df[feature])
-      except:
-          logger.error(f'Error encoding in {feature}')
-  return df
-
-
-def select_features(df, features):
-  '''
-  Select features from the dataframe
-
-  Args:
-    df: pandas dataframe
-    features: list of features to select
-
-  Returns:
-    df: pandas dataframe with selected features
-  '''
-  return df[features]
-
-
-def postprocess_features(df_transformed, index, pipeline):
-    '''
-    Postprocess the transformed features DataFrame.
-    Args:
-        df_transformed: Transformed features DataFrame
-        index: Original index of the DataFrame
-        pipeline: Feature pipeline
-        Returns:
-        df_transformed: Postprocessed features DataFrame
-    '''
-    df_transformed = pd.DataFrame(
-    df_transformed,
-    columns=[name.split("__", 1)[-1] for name in pipeline.get_feature_names_out()],
-    index=index
-    )
-
-    return df_transformed
-
-  
