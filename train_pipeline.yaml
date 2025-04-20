@@ -8,15 +8,42 @@ experiment_name: region-busyness-predictor-train-experiment
 
 jobs:
 
-  full_pipeline:
+  transform_job:
     type: command
     inputs:
       config_file:
         type: uri_file
         path: src/configs/train_config.yaml
+    outputs:
+      output_data_path:
+        mode: upload
+      output_model_path:
     code: .
     environment: azureml:rbp-env1:7
     compute: azureml:spn-compute
     command: >-
-      python src/main.py
+      python src/feature_pipeline.py
       --config ${{inputs.config_file}}
+      --output_model_path ${{outputs.model_output}}
+      --output_data_path ${{outputs.transformed_data}}
+
+  train_job:
+    type: command
+    inputs:
+      config_file:
+        type: uri_file
+        path: src/configs/train_config.yaml
+      training_data: ${{parent.jobs.transform_job.outputs.output_data_path}}
+    outputs:
+      model_output:
+    code: .
+    environment: azureml:rbp-env1:7
+    compute: azureml:spn-compute
+    command: >-
+      python src/train.py
+      --config ${{inputs.config_file}}
+      --training_data ${{inputs.training_data}}
+      --model_output ${{outputs.model_output}}
+
+
+
