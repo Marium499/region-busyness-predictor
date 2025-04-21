@@ -11,8 +11,8 @@ jobs:
     inputs:
       config_file:
         type: uri_file
-        path: deployment/src/configs/deploy_config.yaml
-    code: ./deployment
+        path: training/src/configs/deploy_config.yaml
+    code: training/
     environment: azureml:rbp-env1:10
     compute: azureml:spn-compute
     command: >-
