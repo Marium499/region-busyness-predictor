@@ -135,9 +135,12 @@ def get_transformed_df(df, restaurants_ids, k, resolution, R=6372.8):
       ('features_pipeline', features_pipeline),
       ('encoder', FunctionTransformer(func=Encoder))
   ])
-  
-  df_transformed = full_pipeline.fit_transform(df)
-  logger.info(f'Transformed data after full pipeline: {df_transformed.head()}')
+  try:
+    df_transformed = full_pipeline.fit_transform(df)
+    logger.info(f'Transformed data after full pipeline: {df_transformed.head()}')
+  except Exception as e:
+    logger.error(f'Error in full pipeline: {e}')
+    raise e
   return df_transformed, full_pipeline
 
 
