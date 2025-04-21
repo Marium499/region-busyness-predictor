@@ -9,7 +9,6 @@ from sklearn.preprocessing import LabelEncoder #, OrdinalEncoder
 # from sklearn.compose import ColumnTransformer
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.pipeline import Pipeline, FunctionTransformer
-# import inflect
 
 # from utils import numpy_to_df
 
@@ -32,7 +31,6 @@ class FeaturePipeline(BaseEstimator, TransformerMixin):
     self.resolution = resolution
     self.restaurants_ids = restaurants_ids
     self.random_state = random_state
-    # self.encoder = LabelEncoder()
     self.centroids = None
     self.R = R
 
@@ -95,7 +93,6 @@ class FeaturePipeline(BaseEstimator, TransformerMixin):
     df = self.add_clustering_features(df)
     df = self.add_h3_features(df)
     df = self.add_order_busyness_features(df)
-    # df = self.encode_categorical_features(df)
     return df
 
 

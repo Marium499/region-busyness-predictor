@@ -2,40 +2,9 @@ import pandas as pd
 from io import StringIO
 import logging
 from typing import Dict, Tuple
-# import azureml.core
-# from azureml.core import Workspace, Datastore
-# from azureml.core import Dataset
-# from azureml.data import OutputFileDatasetConfig
 
 
 logger = logging.getLogger(__name__)
-
-# def load_data_from_azure(workspace_name, subscription_id, resource_group, datastore_name: str, dataset_name: str) -> pd.DataFrame:
-#     '''
-#     Load data from Azure ML datastore.
-#     Args:
-#         workspace: Azure ML workspace object.
-#         datastore_name: Name of the datastore.
-#         dataset_name: Name of the dataset.
-#     Returns:
-#         DataFrame: Loaded data.
-#     '''
-#     try:
-#         # workspace = Workspace.from_config()
-#         ws = Workspace.get(name=workspace_name, subscription_id=subscription_id, resource_group=resource_group)
-#         # Get the blob storage associated with the workspace
-#         def_blob_store = Datastore(ws, datastore_name)
-#         dataset = Dataset.File.from_files([(def_blob_store, 'train-images/')])
-#         # # Get file storage associated with the workspace
-#         # def_file_store = Datastore(ws, "workspacefilestore")
-#         # datastore = Datastore.get(workspace, datastore_name)
-#         # dataset = Dataset.get_by_name(workspace, name=dataset_name)
-#         df = dataset.to_pandas_dataframe()
-#         logger.info(f'Data loaded from Azure ML datastore: {datastore_name}/{dataset_name}')
-#     except Exception as e:
-#         logger.error(f'Error loading data from Azure ML datastore: {e}')
-#         raise e
-#     return df
 
 def load_data_from_path(file_path: str = None) -> pd.DataFrame:
     '''
