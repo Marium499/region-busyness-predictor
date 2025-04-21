@@ -46,12 +46,15 @@ def deploy_model():
     cluster_name = config['azure']['cluster_name']
     model_name = config['model']['mlflow_model_name']
     model_version = config['model']['mlflow_model_version']
+    subscription_id = config['azure']['subscription_id']
+    resource_group_name = config['azure']['resource_group_name']
+    workspace_name = config['azure']['workspace_name']
 
     ml_client = MLClient(
     credential=DefaultAzureCredential(),
-    subscription_id="32daaf9e-fc90-446c-8950-13de434a7828",
-    resource_group_name="ml",
-    workspace_name="ml-ws",
+    subscription_id=subscription_id,
+    resource_group_name=resource_group_name,
+    workspace_name=workspace_name,
     )
     env_name = config['deployment']['environment']['name']
     env_version = config['deployment']['environment']['version']
