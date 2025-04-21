@@ -25,4 +25,4 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
     - name: run job
-      run: az ml job create --file train_pipeline.yml -g ${{secrets.AZURE_ML_RESOURCE_GROUP}} -w ${{secrets.AZURE_ML_WORKSPACE}}
+      run: az ml job create --file train_pipeline.yaml -g ${{secrets.AZURE_ML_RESOURCE_GROUP}} -w ${{secrets.AZURE_ML_WORKSPACE}}
