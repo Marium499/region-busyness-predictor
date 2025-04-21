@@ -11,10 +11,10 @@ jobs:
     inputs:
       config_file:
         type: uri_file
-        path: training/src/configs/deploy_config.yaml
-    code: training/
+        path: src/configs/deploy_config.yaml
+    code: src
     environment: azureml:rbp-env1:10
     compute: azureml:spn-compute
     command: >-
-      python src/deploy.py
+      python deploy.py
       --config ${{inputs.config_file}}

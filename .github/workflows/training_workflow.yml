@@ -16,6 +16,7 @@ on:
       - src/data_collection.py
       - src/utils.py
       - src/features.py
+      - train_pipeline.yaml
       - .github/workflows/training_workflow.yml
 jobs:
   build:

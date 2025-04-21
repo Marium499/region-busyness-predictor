@@ -13,7 +13,7 @@ jobs:
     inputs:
       config_file:
         type: uri_file
-        path: training/src/configs/train_config.yaml
+        path: src/configs/train_config.yaml
       raw_data:
         path: azureml://datastores/rbpdatastore/paths/final_dataset.csv
         type: uri_file
@@ -21,7 +21,7 @@ jobs:
       output_data_path:
         mode: upload
       output_model_path:
-    code: ./training/src
+    code: ./src
     environment: azureml:rbp-env1:9
     compute: azureml:spn-compute
     command: >-
@@ -36,12 +36,12 @@ jobs:
     inputs:
       config_file:
         type: uri_file
-        path: training/src/configs/train_config.yaml
+        path: src/configs/train_config.yaml
       training_data: ${{parent.jobs.pretrain_job.outputs.output_data_path}}
       pretrain_path: ${{parent.jobs.pretrain_job.outputs.output_model_path}}
     outputs:
       model_output:
-    code: ./training/src
+    code: ./src
     environment: azureml:rbp-env1:9
     compute: azureml:spn-compute
     command: >-
