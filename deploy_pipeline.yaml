@@ -1,0 +1,20 @@
+$schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
+type: pipeline
+
+description: Deploy a model for region busyness prediction.
+
+display_name: region-busyness-predictor-deploy-pipeline
+experiment_name: region-busyness-predictor-deploy-experiment
+
+jobs:
+  deploy:
+    inputs:
+      config_file:
+        type: uri_file
+        path: deployment/src/configs/deploy_config.yaml
+    code: ./deployment
+    environment: azureml:rbp-env1:10
+    compute: azureml:spn-compute
+    command: >-
+      python src/deploy.py
+      --config ${{inputs.config_file}}

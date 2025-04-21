@@ -1,0 +1,21 @@
+azure:
+  cluster_name : 'spn-compute'
+  subscription_id : '32daaf9e-fc90-446c-8950-13de434a7828'
+  resource_group_name : 'ml'
+  workspace_name : 'ml-ws'
+
+deployment:
+  name : 'rbp-deployment'
+  environment :
+    name : 'rbp-score-env'
+    version : 2
+    conda_file : "environment/conda.yaml"
+    base_image : "mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest"
+  endpoint_name : "rbp-endpoint"
+  instance_type : "Standard_D2a_v4"
+  instance_count : 1
+
+model:
+  mlflow_model_name: 'rbp-model'
+  mlflow_model_version: 2
+  mlflow_artifact_path: 'rbp-model-artifacts'
