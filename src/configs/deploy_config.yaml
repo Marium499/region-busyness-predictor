@@ -9,7 +9,7 @@ deployment:
   environment :
     name : 'rbp-score-env'
     version : 2
-    conda_file : "environment/conda.yaml"
+    conda_file : "deploy_environment/conda.yaml"
     base_image : "mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest"
   endpoint_name : "rbp-endpoint"
   instance_type : "Standard_D2a_v4"

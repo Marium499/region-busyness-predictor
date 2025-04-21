@@ -10,7 +10,12 @@ on:
     branches:
       - main
     paths:
-      - training/**
+      - src/train.py
+      - src/configs/train_config.yaml
+      - src/pretraining_pipeline.py
+      - src/data_collection.py
+      - src/utils.py
+      - src/features.py
       - .github/workflows/training_workflow.yml
 jobs:
   build:

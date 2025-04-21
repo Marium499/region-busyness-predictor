@@ -10,7 +10,9 @@ on:
     branches:
       - main
     paths:
-      - deployment/**
+      - src/deploy.py
+      - src/configs/deploy_config.yaml
+      - src/score.py
       - .github/workflows/deployment_workflow.yml
 jobs:
   build:
