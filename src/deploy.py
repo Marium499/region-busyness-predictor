@@ -95,7 +95,7 @@ def deploy_model():
         endpoint_name=endpoint_name,
         model=model,
         code_configuration=CodeConfiguration(
-            code="src/",
+            code=".",
             scoring_script="score.py",
         ),
         environment=env,

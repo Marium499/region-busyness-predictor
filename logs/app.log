@@ -1232,3 +1232,4 @@ ValueError: Input y contains NaN.
 2025-04-20 13:37:17,026:INFO:utils:Model saved as rf_model.pkl in saved_models/models
 2025-04-20 13:37:17,040:INFO:utils:Model saved as grid_search_model.pkl in saved_models/models
 2025-04-20 13:37:17,040:INFO:__main__:Training pipeline completed.
+2025-04-21 11:14:24,857:INFO:__main__:--------------------------------------------------
