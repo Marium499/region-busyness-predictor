@@ -29,4 +29,3 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
     - name: run job
       run: az ml job create --file deploy_pipeline.yaml -g ${{secrets.AZURE_ML_RESOURCE_GROUP}} -w ${{secrets.AZURE_ML_WORKSPACE}}
-      working-directory: deployment
